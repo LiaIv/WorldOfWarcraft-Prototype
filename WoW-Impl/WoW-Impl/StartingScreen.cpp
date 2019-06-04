@@ -31,6 +31,8 @@ void StartingScreen::printCommands() {
 		break;
 	case 3:
 		listPlayers();
+		system("CLS");
+		printCommands();
 		break;
 	case 4: return;
 		break;
@@ -85,6 +87,27 @@ void StartingScreen::loadGame() {
 }
 
 void StartingScreen::listPlayers() {
-	cout << " Players list: " << endl;
-	//?
+	fstream ioFile;
+	ioFile.open("players.txt", ios::in);
+	if (!ioFile) {
+		cerr << "File couldn’t be opened!\n";
+		return;
+	}
+	int counter = 1;
+	cout << " Players list:\n " << counter << ". ";
+	char letter = ' ';
+	while (ioFile >> letter) {
+		if (letter == ',') {
+			counter++;
+			cout << endl;
+			cout << " " << counter << ". ";
+		}
+		else {
+			cout << letter;
+		}
+	}
+
+	cout << "\n\n";
+	system("pause");
+	return;
 }

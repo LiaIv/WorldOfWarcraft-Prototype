@@ -10,6 +10,8 @@ class Player {
 	void Free();
 	void CopyFrom(const Player& other);
 public:
+	String getName();
+	void setName(char* name);
 	Hero* getHero();
 	Player();
 	Player(String name, int heroNumber);

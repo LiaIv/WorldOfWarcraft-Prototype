@@ -150,16 +150,37 @@ void Gameplay::winGame() {
 
 void Gameplay::saveGame() {
 	ofstream ioFile;
+	ofstream ioFilePlayers;
 	ioFile.open("games.txt", ios::app | ios::binary);
+
 	if (!ioFile) {
 		cerr << "File couldn’t be opened!\n";
 		return;
 	}
+
+	ioFilePlayers.open("players.txt", ios::app);
+
+	if (!ioFile) {
+		cerr << "File couldn’t be opened!\n";
+		return;
+	}
+
 	ioFile.seekp(ios::end);
+
 
 	ioFile.write((char*)&player, sizeof(Player));
 	ioFile.write((char*)&map, sizeof(Map));
 
+	ioFilePlayers.seekp(0, ios::end);
+
+	if (ioFilePlayers.tellp() == 0) {
+		ioFilePlayers << player.getName();
+	}
+	else {
+		ioFilePlayers << ',' << endl << player.getName();
+	}
+
+	ioFilePlayers.close();
 	ioFile.close();
 	cout << "\n Game saved!\n\n ";
 	system("pause");

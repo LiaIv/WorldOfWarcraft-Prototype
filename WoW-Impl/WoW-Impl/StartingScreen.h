@@ -10,7 +10,6 @@ public:
 	void printCommands();
 	void printHeroTypes();
 	void startGame();
-	void saveGame();
 	void loadGame();
 	void listPlayers();
 };

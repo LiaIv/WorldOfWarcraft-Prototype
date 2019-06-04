@@ -15,6 +15,14 @@ void Player::CopyFrom(const Player & other)
 	}
 }
 
+String Player::getName() {
+	return name;
+}
+
+void Player::setName(char* name) {
+	this->name = name;
+}
+
 Hero * Player::getHero()
 {
 	return chosenHero;

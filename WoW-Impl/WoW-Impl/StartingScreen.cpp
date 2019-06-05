@@ -81,6 +81,7 @@ void StartingScreen::loadGame() {
 		cerr << "File couldn’t be opened!\n";
 		return;
 	}
+	
 
 
 	ioFile.close();

@@ -30,12 +30,12 @@ Goblin::Goblin() : Monster() {
 }
 
 double Goblin::attackPower(Hero & enemy) {
-	cout << "\n " << getName() << " attacks!\n ";
+	cout << "\n ~ " << getName() << " attacks!\n ";
 	return 3 + 0.1*enemy.getIntellect();
 }
 
 double Goblin::defend(double damage) {
-	cout << "\n " << getName() << " defends itself! \n";
+	cout << "\n ~ " << getName() << " defends itself! \n";
 	return damage;
 }
 
@@ -47,12 +47,12 @@ Dragonkin::Dragonkin() : Monster() {
 
 double Dragonkin::attackPower(Hero & enemy)
 {
-	cout << "\n " << getName() << " attacks!\n ";
+	cout << "\n ~ " << getName() << " attacks!\n ";
 	return 8;
 }
 
 double Dragonkin::defend(double damage) {
-	cout << "\n " << getName() << " defends itself! \n";
+	cout << "\n ~ " << getName() << " defends itself! \n";
 	if (counterDefend % 3 == 0) {
 		damage -= 10;
 		if (damage < 0) {
@@ -70,7 +70,7 @@ DeathKnight::DeathKnight() : Monster() {
 }
 
 double DeathKnight::attackPower(Hero & enemy) {
-	cout << "\n " << getName() << " attacks!\n ";
+	cout << "\n ~ " << getName() << " attacks!\n ";
 	if (isLikeGoblin) {
 		isLikeGoblin = false;
 		return 3 + 0.1*enemy.getIntellect();
@@ -81,7 +81,7 @@ double DeathKnight::attackPower(Hero & enemy) {
 
 double DeathKnight::defend(double damage)
 {
-	cout << "\n " << getName() << " defends itself! \n";
+	cout << "\n ~ " << getName() << " defends itself! \n";
 	if (counterDefend % 3 == 0) {
 		damage -= 10;
 		if (damage < 0) {

@@ -33,7 +33,7 @@ public:
 	Hero();
 	virtual ~Hero() = 0;
 	virtual double getAttackPower() = 0;
-	virtual void defend();
+	virtual void defend() {};
 	virtual void endOfFight();
 
 	bool isAlive();

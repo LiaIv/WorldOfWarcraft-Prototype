@@ -46,10 +46,6 @@ void Hero::setLevel(int level) {
 
 Hero::~Hero() {}
 
-void Hero::defend()
-{
-	cout << " You defend yourself! \n" << endl;
-}
 
 void Hero::endOfFight() {
 	killedMonsters += 1;
@@ -63,8 +59,7 @@ Hero::Hero() {
 	killedMonsters = 0;
 }
 
-bool Hero::isAlive()
-{
+bool Hero::isAlive() {
 	return hp;
 }
 
@@ -96,8 +91,7 @@ void Warrior::levelUp(int killedMonsters) {
 	}
 }
 
-double Warrior::getAttackPower()
-{
+double Warrior::getAttackPower() {
 	double ragePower = rage / 5;
 	if (rage == 100) {
 		rage = 0;
@@ -144,8 +138,7 @@ Paladin::Paladin() : Hero() {
 	countAttacks = 0;
 }
 
-double Paladin::getAttackPower()
-{
+double Paladin::getAttackPower() {
 	double power = 0.5*getStrength() + 0.5*getIntellect();
 	if ((countAttacks + 1) % 3 == 0) {
 		power += power * 0.5;

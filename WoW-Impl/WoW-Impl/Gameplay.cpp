@@ -88,18 +88,19 @@ void Gameplay::fight(Hero & hero, Monster & monster) {
 		monster.setHp(monster.getHp() - monster.defend(hero.getAttackPower()));
 		if (monster.getHp() < 0) {
 			monster.setHp(0);
-			cout << "\n " << monster.getName() << " died!\n\n";
+			cout << "\n ~ " << monster.getName() << " died!\n\n";
 			system("pause");
 		}
+		cout << "\n " << monster.getName() << " 's HP: " << monster.getHp() << endl;
 		if (monster.isAlive()) {
 			hero.setHp(hero.getHp() - monster.attackPower(hero));
 			fightCommmand('d');
-			cout << "\n You defend yourself!\n";
-			continue;
+			cout << "\n ~ You defend yourself! \n" << endl;
 		}
 		if (hero.getHp() < 0) {
 			hero.setHp(0);
 		}
+		cout << " Your HP: " << hero.getHp() << endl;
 	}
 	endOfAttack(hero.isAlive(), monster.isAlive());
 }
@@ -132,6 +133,8 @@ void Gameplay::endOfAttack(bool isAliveHero, bool isAliveMonster)
 	}
 	else {
 		gameOver();
+		StartingScreen sc;
+		return;
 	}
 }
 
